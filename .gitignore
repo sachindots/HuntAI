@@ -1,0 +1,23 @@
+# python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+
+# secrets + runtime
+.env
+data/
+*.log
+
+# node / svelte
+node_modules/
+web/frontend/dist/
+web/dist/
+web/.svelte-kit/
+
+# os
+.DS_Store
+Thumbs.db
