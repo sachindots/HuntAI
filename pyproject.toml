@@ -1,0 +1,42 @@
+[project]
+name = "huntai"
+version = "0.2.0"
+description = "AI-powered red-team recon framework — lab-scoped, free-model, multi-agent"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "Sachin S" }]
+
+dependencies = [
+    "pydantic>=2.7",
+    "pydantic-settings>=2.3",
+    "pyyaml>=6.0",
+    "rich>=13.7",
+    "python-dotenv>=1.0",
+]
+
+[project.optional-dependencies]
+# Heavier deps land in later phases; kept optional so Phase 0 installs clean.
+llm = ["openai>=1.30"]
+tui = ["textual>=0.60"]
+web = ["fastapi>=0.110", "uvicorn[standard]>=0.29", "websockets>=12"]
+kb = ["lancedb>=0.6", "sentence-transformers>=3.0"]
+dev = ["pytest>=8.0", "pytest-asyncio>=0.23", "ruff>=0.4"]
+
+[project.scripts]
+huntai = "huntai.cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/huntai"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
