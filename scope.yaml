@@ -1,0 +1,30 @@
+# HuntAI scope authorization — HARD safety boundary.
+#
+# The scope guard rejects any target not matched here, in CODE (not prompt).
+# Default posture: lab-only. Public targets are denied unless you explicitly
+# add them AND set require_explicit_public: false (do NOT do this without
+# written authorization for the target — see README "Responsible use").
+
+mode: lab            # lab | authorized
+require_explicit_public: true   # public IPs always denied while true
+
+# Networks HuntAI may scan. Lab generator provisions targets inside lab_net.
+allow_cidrs:
+  - 127.0.0.0/8       # localhost
+  - 172.20.0.0/16     # HuntAI lab subnet (docker compose)
+  - 10.13.37.0/24     # extra local lab range
+
+# Domains/suffixes allowed (lab hostnames only by default).
+allow_domains:
+  - localhost
+  - dvwa.lab
+  - juiceshop.lab
+  - .huntai.lab
+
+# Explicit deny always wins over allow.
+deny_cidrs:
+  - 169.254.0.0/16    # link-local / cloud metadata
+  - 100.64.0.0/10     # CGNAT
+
+# The subnet the lab generator uses. Guard treats this as always-in-scope.
+lab_net: 172.20.0.0/16
