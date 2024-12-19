@@ -1,0 +1,56 @@
+# HuntAI lab environment.
+#
+# One isolated bridge network (172.20.0.0/16) = the scope-locked lab net.
+# Vuln targets sit on static IPs so the scope guard + lab generator are
+# deterministic. Each target is behind a compose PROFILE so only the lab you
+# ask for starts. The `tools` service is the sandbox recon runs from.
+#
+#   docker compose --profile dvwa up -d          # start one lab
+#   docker compose --profile tools run tools ...  # run a tool in-sandbox
+#
+# NOTE: targets bind ONLY to the internal lab net, not host ports, so nothing
+# is exposed outside Docker unless you add a ports: mapping deliberately.
+
+networks:
+  lab:
+    name: huntai_lab
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
+          gateway: 172.20.0.1
+
+services:
+  # --- recon sandbox -------------------------------------------------
+  tools:
+    build: ./tools
+    image: huntai/tools:latest
+    profiles: ["tools"]
+    networks:
+      lab:
+        ipv4_address: 172.20.0.2
+    working_dir: /work
+    volumes:
+      - ../data:/work/data
+    # keep alive for `docker compose exec`; recon dispatched in Phase 2/3
+    command: ["sleep", "infinity"]
+
+  # --- vulnerable targets (each gated by a profile) ------------------
+  dvwa:
+    image: ghcr.io/digininja/dvwa:latest
+    profiles: ["dvwa"]
+    networks:
+      lab:
+        ipv4_address: 172.20.0.10
+    environment:
+      - DEFAULT_SECURITY_LEVEL=low
+
+  juiceshop:
+    image: bkimminich/juice-shop:latest
+    profiles: ["juiceshop"]
+    networks:
+      lab:
+        ipv4_address: 172.20.0.11
+
+  # vulhub-style CVE labs are added as profiles here in later work, e.g.
+  #   log4shell / struts / etc., each pinned to a 172.20.0.x address.
