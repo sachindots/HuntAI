@@ -1,0 +1,21 @@
+# Lab target registry. Each entry maps a friendly name to a compose profile
+# and a STATIC ip inside the lab net (172.20.0.0/16) so the scope guard and
+# generator stay deterministic. Every ip here MUST be inside scope.yaml's
+# lab_net - the lab manager asserts this on load.
+
+labs:
+  dvwa:
+    profile: dvwa
+    ip: 172.20.0.10
+    port: 80
+    scheme: http
+    image: ghcr.io/digininja/dvwa:latest
+    description: "Damn Vulnerable Web Application - classic web vulns"
+
+  juiceshop:
+    profile: juiceshop
+    ip: 172.20.0.11
+    port: 3000
+    scheme: http
+    image: bkimminich/juice-shop:latest
+    description: "OWASP Juice Shop - modern vulnerable SPA"
