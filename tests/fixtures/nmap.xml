@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<nmaprun scanner="nmap">
+ <host>
+  <status state="up"/>
+  <address addr="172.20.0.10" addrtype="ipv4"/>
+  <ports>
+   <port protocol="tcp" portid="22">
+    <state state="open"/>
+    <service name="ssh" product="OpenSSH" version="6.6.1p1"/>
+   </port>
+   <port protocol="tcp" portid="80">
+    <state state="open"/>
+    <service name="http" product="Apache httpd" version="2.4.7"/>
+   </port>
+   <port protocol="tcp" portid="443">
+    <state state="closed"/>
+   </port>
+  </ports>
+ </host>
+</nmaprun>
