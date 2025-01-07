@@ -1,0 +1,2 @@
+{"url":"http://172.20.0.10","host":"172.20.0.10","status_code":200,"title":"Damn Vulnerable Web Application","tech":["Apache HTTP Server","PHP"]}
+{"url":"http://172.20.0.10/login.php","host":"172.20.0.10","status_code":200,"title":"Login :: DVWA","tech":["Apache HTTP Server"]}
