@@ -1,0 +1,2 @@
+{"template-id":"apache-detect","info":{"name":"Apache Detection","severity":"info"},"host":"172.20.0.10","matched-at":"http://172.20.0.10"}
+{"template-id":"dvwa-default-login","info":{"name":"DVWA Default Login","severity":"high"},"host":"172.20.0.10","matched-at":"http://172.20.0.10/login.php"}
