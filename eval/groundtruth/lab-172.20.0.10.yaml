@@ -1,0 +1,7 @@
+# Ground truth for the DVWA lab target (matches the test fixtures).
+target: 172.20.0.10
+expected:
+  - "80"                 # open http port
+  - "22"                 # open ssh port
+  - "default login"      # DVWA weak creds (nuclei high)
+  - "CVE-2014-0226"      # apache 2.4.7 known CVE
