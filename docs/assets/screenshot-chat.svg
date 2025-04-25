@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="560" viewBox="0 0 900 560" font-family="'JetBrains Mono','Cascadia Code',Consolas,monospace">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0b1410"/><stop offset="0.7" stop-color="#05070a"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="560" rx="10" fill="url(#bg2)"/>
+  <rect width="900" height="34" rx="10" fill="#080d10"/><rect y="24" width="900" height="10" fill="#080d10"/>
+  <circle cx="20" cy="17" r="5.5" fill="#ff2e63"/><circle cx="38" cy="17" r="5.5" fill="#ffb000"/><circle cx="56" cy="17" r="5.5" fill="#00ff9c"/>
+  <text x="78" y="21" fill="#00c27a" font-size="12">huntai@recon:~</text>
+  <text x="740" y="21" fill="#ffb000" font-size="11">● preview.owasp-juice.shop</text>
+
+  <g font-size="12.5">
+    <text x="20" y="70" fill="#ff5c00" font-size="11">── nuclei vulnerability scan ──</text>
+    <text x="20" y="90"><tspan fill="#ff5c00">exec&gt;</tspan><tspan fill="#00c27a"> nuclei (rate-limited, low→critical)</tspan></text>
+    <rect x="34" y="100" width="360" height="22" fill="rgba(255,176,0,0.08)" stroke="#ffb000" stroke-width="0.5"/>
+    <text x="42" y="115" fill="#ffb000">[MEDIUM] Prometheus Metrics — exposed endpoint</text>
+
+    <text x="20" y="158"><tspan fill="#ffb000">operator&gt;</tspan><tspan fill="#c9ffe9"> of the open ports, which is most interesting to attack and why?</tspan></text>
+    <text x="20" y="182"><tspan fill="#00ff9c">huntai&gt;</tspan><tspan fill="#c9ffe9" font-weight="bold"> Port 80/8080 (HTTP proxies) — largest attack surface.</tspan></text>
+  </g>
+  <g font-size="12" fill="#c9ffe9">
+    <text x="66" y="204">Proxies often expose misconfigurations (open relay, cache poisoning,</text>
+    <text x="66" y="222">header smuggling), info leaks (Via, X-Forwarded-For), and web-app flaws</text>
+    <text x="66" y="240">(SQLi, RCE, SSRF). 443 is encrypted but worth TLS/cert enum. FTP (21)</text>
+    <text x="66" y="258">is low-yield unless anonymous login or vintage vulns exist.</text>
+  </g>
+  <g font-size="11.5" fill="#8fdfc0">
+    <text x="66" y="284">Next:</text>
+    <text x="66" y="302">  · curl -v http://&lt;t&gt;:80 /:8080 — grab headers, Via, X-Forwarded-For</text>
+    <text x="66" y="320">  · nmap --script http-open-proxy,http-proxy-brute — open-relay / bypass</text>
+    <text x="66" y="338">  · if web apps found → ffuf/feroxbuster, then sqlmap/dalfox as apt</text>
+  </g>
+
+  <line x1="0" y1="470" x2="900" y2="470" stroke="#123"/>
+  <text x="20" y="497" fill="#00ff9c" font-size="12.5">hunter@huntai:~$ <tspan fill="#ffb000">ask a question · run · finish</tspan> <tspan fill="#00ff9c">_</tspan></text>
+</svg>

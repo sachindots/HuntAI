@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="600" viewBox="0 0 900 600" font-family="'JetBrains Mono','Cascadia Code',Consolas,monospace">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0b1410"/><stop offset="0.7" stop-color="#05070a"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="600" rx="10" fill="url(#bg)"/>
+  <rect width="900" height="34" rx="10" fill="#080d10"/>
+  <rect y="24" width="900" height="10" fill="#080d10"/>
+  <circle cx="20" cy="17" r="5.5" fill="#ff2e63"/><circle cx="38" cy="17" r="5.5" fill="#ffb000"/><circle cx="56" cy="17" r="5.5" fill="#00ff9c"/>
+  <text x="78" y="21" fill="#00c27a" font-size="12">huntai@recon:~</text>
+  <text x="760" y="21" fill="#ffb000" font-size="11">● preview.owasp-juice.shop</text>
+
+  <g fill="#00ff9c" font-size="9.5" opacity="0.92">
+    <text x="20" y="64">  ██╗  ██╗██╗   ██╗███╗   ██╗████████╗ █████╗ ██╗</text>
+    <text x="20" y="76">  ███████║██║   ██║██╔██╗ ██║   ██║   ███████║██║</text>
+    <text x="20" y="88">  ██╔══██║██║   ██║██║╚██╗██║   ██║   ██╔══██║██║</text>
+    <text x="20" y="100">  ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═══╝   ╚═╝   ╚═╝  ╚═╝╚═╝</text>
+  </g>
+  <text x="20" y="122" fill="#4a6b5c" font-size="12">HuntAI recon console // authorized targets only</text>
+
+  <g font-size="12.5">
+    <text x="20" y="152"><tspan fill="#ffb000">operator&gt;</tspan><tspan fill="#c9ffe9"> preview.owasp-juice.shop</tspan></text>
+    <text x="20" y="174"><tspan fill="#00ff9c">huntai&gt;</tspan><tspan fill="#c9ffe9"> target in scope: preview.owasp-juice.shop (domain). session open.</tspan></text>
+    <text x="20" y="196"><tspan fill="#00ff9c">huntai&gt;</tspan><tspan fill="#c9ffe9"> Start with passive subdomain enumeration before active probing.</tspan></text>
+    <rect x="66" y="206" width="96" height="20" fill="#04120c" stroke="#00c27a"/><text x="76" y="220" fill="#00ff9c" font-size="11.5">▶ subfinder</text>
+
+    <text x="20" y="252"><tspan fill="#ffb000">operator&gt;</tspan><tspan fill="#c9ffe9"> run nmap</tspan></text>
+    <text x="20" y="272"><tspan fill="#ff5c00">exec&gt;</tspan><tspan fill="#00c27a"> executing: nmap</tspan></text>
+    <text x="34" y="292" fill="#00c27a" font-size="11.5">✓ nmap: 4 open port(s). 21/tcp ftp · 80,8080/tcp F5 BIG-IP proxy · 443/tcp Apache 2.4.68</text>
+  </g>
+
+  <g font-size="12">
+    <rect x="34" y="304" width="300" height="20" fill="rgba(0,224,255,0.06)"/><text x="42" y="318" fill="#00e0ff">[INFO] open 21/tcp ftp</text>
+    <rect x="34" y="328" width="300" height="20" fill="rgba(0,224,255,0.06)"/><text x="42" y="342" fill="#00e0ff">[INFO] open 80/tcp http-proxy</text>
+    <rect x="34" y="352" width="300" height="20" fill="rgba(0,224,255,0.06)"/><text x="42" y="366" fill="#00e0ff">[INFO] open 443/tcp http</text>
+    <rect x="34" y="376" width="300" height="20" fill="rgba(0,224,255,0.06)"/><text x="42" y="390" fill="#00e0ff">[INFO] open 8080/tcp http-proxy</text>
+  </g>
+
+  <g font-size="12.5">
+    <text x="20" y="424"><tspan fill="#00ff9c">huntai&gt;</tspan><tspan fill="#c9ffe9"> HTTP probing on discovered ports, then vulnerability scanning.</tspan></text>
+    <rect x="66" y="434" width="86" height="20" fill="#04120c" stroke="#00c27a"/><text x="76" y="448" fill="#00ff9c" font-size="11.5">▶ httpx</text>
+    <rect x="160" y="434" width="86" height="20" fill="#04120c" stroke="#00c27a"/><text x="170" y="448" fill="#00ff9c" font-size="11.5">▶ nuclei</text>
+    <rect x="254" y="434" width="86" height="20" fill="#04120c" stroke="#ffb000"/><text x="264" y="448" fill="#ffb000" font-size="11.5">▶ run all</text>
+  </g>
+
+  <line x1="0" y1="474" x2="900" y2="474" stroke="#123"/>
+  <text x="20" y="500" fill="#00ff9c" font-size="12.5">hunter@huntai:~$ <tspan fill="#00ff9c">_</tspan></text>
+
+  <rect width="900" height="600" fill="url(#scan)" opacity="0.5"/>
+  <pattern id="scan" width="3" height="3" patternUnits="userSpaceOnUse"><rect width="3" height="1" fill="#00ff9c" opacity="0.03"/></pattern>
+</svg>
